@@ -21,13 +21,8 @@ class RobotController extends AdminController {
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
      */
     public function index(){
-        $pid = i('get.pid', 0);
-        /* 获取频道列表 */
-        //$map  = array('stat' => array('gt', -1), 'id'=>$pid);
         $list = M('RobotHosts')->where('id>0')->order('ctime desc')->limit(10)->select();
-        //var_dump($list);exit;
         $this->assign('list', $list);
-        $this->assign('pid', $pid);
         $this->meta_title = '管理';
         $this->display();
     }
