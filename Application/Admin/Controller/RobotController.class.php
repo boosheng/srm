@@ -14,7 +14,7 @@ namespace Admin\Controller;
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 
-class SpiderController extends AdminController {
+class RobotController extends AdminController {
 
     /**
      * 网址列表
@@ -28,7 +28,7 @@ class SpiderController extends AdminController {
         //var_dump($list);exit;
         $this->assign('list', $list);
         $this->assign('pid', $pid);
-        $this->meta_title = '导航管理';
+        $this->meta_title = '管理';
         $this->display();
     }
 
