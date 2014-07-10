@@ -1,0 +1,695 @@
+[ 2014-07-09T12:09:38+08:00 ] ::1 /spider/admin.php?s=/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003983s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004189s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000100s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000126s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000300s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000329s ]
+
+[ 2014-07-09T12:09:51+08:00 ] ::1 /spider/admin.php?s=/Public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000548s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.005602s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'administrator' ) LIMIT 1   [ RunTime:0.000788s ]
+SQL: UPDATE `onethink_ucenter_member` SET `last_login_time`=1404878991,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.000559s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.002343s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `onethink_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000821s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.001309s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000636s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.001400s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,0,'member',1,1404878991,'Administrator在2014-07-09 12:09登录了后台') [ RunTime:0.000685s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000240s ]
+NOTIC: [8] Undefined offset: 1 /Applications/XAMPP/xamppfiles/htdocs/spider/Application/Common/Common/function.php 第 665 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given /Applications/XAMPP/xamppfiles/htdocs/spider/Application/Common/Common/function.php 第 665 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1404792591 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: UPDATE `onethink_member` SET `login`=`login`+1,`last_login_time`=1404878991,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.000282s ]
+
+[ 2014-07-09T12:09:51+08:00 ] ::1 /spider/admin.php?s=/Index/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001686s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001718s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Index/index%' ) LIMIT 1   [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001696s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000397s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 1 )  [ RunTime:0.000412s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 1 ) AND ( `hide` = 0 )  [ RunTime:0.000309s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+INFO: [ AdminIndex ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.001987s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SiteStat' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000537s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.000901s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_member` LIMIT 1   [ RunTime:0.000162s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.000962s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` LIMIT 1   [ RunTime:0.000157s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.001096s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` LIMIT 1   [ RunTime:0.000153s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.001061s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_category` LIMIT 1   [ RunTime:0.000202s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.001267s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_model` LIMIT 1   [ RunTime:0.000151s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.014037s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001345s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.001384s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000129s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000162s ]
+INFO: Run Addons\SiteStat\SiteStatAddon [ RunTime:0.013051s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SystemInfo' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000334s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.156852s ]
+SQL: select version() as v; [ RunTime:0.000248s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002135s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.141236s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.143249s ]
+INFO: Run Addons\SystemInfo\SystemInfoAddon [ RunTime:0.143270s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'DevTeam' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000282s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.159536s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001182s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.144255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000007s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.145295s ]
+INFO: Run Addons\DevTeam\DevTeamAddon [ RunTime:0.002021s ]
+INFO: [ AdminIndex ] --END-- [ RunTime:0.158412s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001296s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.144255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.145401s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000495s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000562s ]
+
+[ 2014-07-09T12:09:54+08:00 ] ::1 /spider/admin.php?s=/Config/group.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001298s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000399s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Config/group%' ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001229s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000232s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000309s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000312s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000371s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000269s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.001192s ]
+SQL: SELECT `id`,`name`,`title`,`extra`,`value`,`remark`,`type` FROM `onethink_config` WHERE ( `status` = 1 ) AND ( `group` = 1 ) ORDER BY sort  [ RunTime:0.000842s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012330s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012372s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000331s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000365s ]
+
+[ 2014-07-09T12:09:57+08:00 ] ::1 /spider/admin.php?s=/Config/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005647s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000430s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Config/index%' ) LIMIT 1   [ RunTime:0.000263s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001251s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=70 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000183s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000262s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000245s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000411s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000279s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `onethink_config` [ RunTime:0.001331s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_config` WHERE ( `status` = 1 ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT `id`,`name`,`type`,`title`,`group`,`extra`,`remark`,`create_time`,`update_time`,`status`,`value`,`sort` FROM `onethink_config` WHERE ( `status` = 1 ) ORDER BY sort,id LIMIT 0,10   [ RunTime:0.000369s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000123s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011943s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011982s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000449s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000492s ]
+
+[ 2014-07-09T12:09:59+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005758s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000408s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001166s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000269s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000248s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000370s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000329s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000293s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000352s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000292s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013947s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014056s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000186s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000475s ]
+
+[ 2014-07-09T12:10:03+08:00 ] ::1 /spider/admin.php?s=/Channel/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005458s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000500s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Channel/index%' ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001560s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=76 ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000232s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000493s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000371s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000509s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000442s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000617s ]
+SQL: SHOW COLUMNS FROM `onethink_channel` [ RunTime:0.001439s ]
+SQL: SELECT * FROM `onethink_channel` WHERE ( `status` > -1 ) AND ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000768s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010859s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010900s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000110s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000474s ]
+
+[ 2014-07-09T12:10:05+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005698s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000417s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001074s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000267s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000240s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000293s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000360s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000297s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000353s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000293s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000128s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000427s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000481s ]
+
+[ 2014-07-09T12:10:11+08:00 ] ::1 /spider/admin.php?s=/Menu/add/pid/0.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005801s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000445s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/add%' ) LIMIT 1   [ RunTime:0.000313s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001121s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=96 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000176s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000175s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000255s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000249s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000348s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000278s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000265s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu`  [ RunTime:0.000516s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000139s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000372s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000405s ]
+
+[ 2014-07-09T12:10:45+08:00 ] ::1 /spider/admin.php?s=/Menu/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000867s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001942s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000761s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/add%' ) LIMIT 1   [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001109s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=96 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000469s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000424s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000339s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000260s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000274s ]
+SQL: INSERT INTO `onethink_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('爬虫',0,'/Spider/index',0,'',0,0,'spider',0) [ RunTime:0.000190s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.001996s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000881s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.002691s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,0,'Menu',122,1404879045,'操作url：/spider/admin.php?s=/Menu/add.html') [ RunTime:0.000542s ]
+
+[ 2014-07-09T12:10:46+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005739s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000460s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001317s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000250s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000180s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000281s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000246s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000341s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000268s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000277s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000342s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000302s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000130s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000196s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017063s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000214s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000505s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2014-07-09T12:10:52+08:00 ] ::1 /spider/admin.php?s=/Menu/edit/id/122.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006301s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000481s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/edit%' ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001328s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=98 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000364s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000274s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000308s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000256s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000263s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `id` = 122 ) LIMIT 1   [ RunTime:0.000215s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu`  [ RunTime:0.000502s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011530s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011578s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000125s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2014-07-09T12:10:58+08:00 ] ::1 /spider/admin.php?s=/Menu/edit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002572s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.003109s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000615s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/edit%' ) LIMIT 1   [ RunTime:0.000406s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.002441s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=98 ) LIMIT 1   [ RunTime:0.000803s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000822s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000632s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000355s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000488s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001480s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001521s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001314s ]
+SQL: UPDATE `onethink_menu` SET `title`='爬虫',`sort`=4,`url`='/Spider/index',`pid`=0,`group`='',`hide`=0,`is_dev`=0,`tip`='spider' WHERE ( `id` = 122 ) [ RunTime:0.000633s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.001871s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000656s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.003806s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,0,'Menu',122,1404879058,'操作url：/spider/admin.php?s=/Menu/edit.html') [ RunTime:0.000314s ]
+
+[ 2014-07-09T12:11:00+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005923s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000431s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000247s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001181s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000269s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000240s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000390s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000276s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000269s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000367s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000547s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000158s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000234s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016789s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016844s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000459s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000521s ]
+
+[ 2014-07-09T12:11:06+08:00 ] ::1 /spider/admin.php?s=/Menu/add/pid/0.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005668s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000434s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/add%' ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001142s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=96 ) LIMIT 1   [ RunTime:0.000219s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000166s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000268s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000228s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000388s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000267s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000273s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu`  [ RunTime:0.000515s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010049s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000110s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000466s ]
+
+[ 2014-07-09T12:11:35+08:00 ] ::1 /spider/admin.php?s=/Menu/add.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000452s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000803s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.002738s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000879s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/add%' ) LIMIT 1   [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.002688s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=96 ) LIMIT 1   [ RunTime:0.000783s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000794s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000839s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000434s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000404s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000569s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001238s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001406s ]
+SQL: INSERT INTO `onethink_menu` (`title`,`sort`,`url`,`pid`,`group`,`hide`,`is_dev`,`tip`,`id`) VALUES ('机器人',7,'/Robot/index',0,'',0,0,'robot',0) [ RunTime:0.000638s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.001947s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.002043s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,0,'Menu',123,1404879095,'操作url：/spider/admin.php?s=/Menu/add.html') [ RunTime:0.000518s ]
+
+[ 2014-07-09T12:11:37+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006304s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000436s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001144s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000223s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000179s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000274s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000315s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000341s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000263s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000267s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000340s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000313s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000126s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012104s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012144s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000111s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000336s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2014-07-09T12:11:48+08:00 ] ::1 /spider/admin.php?s=/Menu/edit/id/123.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005853s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000460s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/edit%' ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001021s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=98 ) LIMIT 1   [ RunTime:0.000254s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000181s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000176s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000275s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000308s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000353s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000261s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000265s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `id` = 123 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu`  [ RunTime:0.000509s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010758s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010804s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000121s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000465s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2014-07-09T12:11:56+08:00 ] ::1 /spider/admin.php?s=/Menu/edit.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000489s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000991s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.004508s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.001164s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/edit%' ) LIMIT 1   [ RunTime:0.001050s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001947s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=98 ) LIMIT 1   [ RunTime:0.000861s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000738s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000670s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.001359s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000753s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000919s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000424s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000363s ]
+SQL: UPDATE `onethink_menu` SET `title`='机器人',`sort`=4,`url`='/Robot/index',`pid`=0,`group`='',`hide`=0,`is_dev`=0,`tip`='robot' WHERE ( `id` = 123 ) [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.003053s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'update_menu' ) LIMIT 1   [ RunTime:0.000956s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.001509s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (10,1,0,'Menu',123,1404879116,'操作url：/spider/admin.php?s=/Menu/edit.html') [ RunTime:0.000932s ]
+
+[ 2014-07-09T12:11:58+08:00 ] ::1 /spider/admin.php?s=/Menu/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005672s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000495s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Menu/index%' ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001084s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=75 ) LIMIT 1   [ RunTime:0.000227s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=68 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 68 )  [ RunTime:0.000367s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 68 ) AND ( `hide` = 0 )  [ RunTime:0.000270s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '系统设置' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000321s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000296s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '数据备份' ) AND ( `pid` = 68 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000264s ]
+SQL: SELECT `id`,`title` FROM `onethink_menu`  [ RunTime:0.000343s ]
+SQL: SELECT `id`,`title`,`pid`,`sort`,`url`,`hide`,`tip`,`group`,`is_dev` FROM `onethink_menu` WHERE ( `pid` = 0 ) ORDER BY sort asc,id asc  [ RunTime:0.000304s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013349s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013394s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000170s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000345s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000379s ]
+
+[ 2014-07-09T23:21:25+08:00 ] ::1 /spider/admin.php?s=/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008187s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000443s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000717s ]
+
+[ 2014-07-09T23:21:36+08:00 ] ::1 /spider/admin.php?s=/Public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000297s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000506s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.012657s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'administrator' ) LIMIT 1   [ RunTime:0.003719s ]
+SQL: UPDATE `onethink_ucenter_member` SET `last_login_time`=1404919296,`last_login_ip`=0 WHERE ( `id` = 1 ) [ RunTime:0.002549s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.003151s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `onethink_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.002239s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000571s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.002114s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,0,'member',1,1404919296,'Administrator在2014-07-09 23:21登录了后台') [ RunTime:0.001480s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000227s ]
+NOTIC: [8] Undefined offset: 1 /Applications/XAMPP/xamppfiles/htdocs/spider/Application/Common/Common/function.php 第 665 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given /Applications/XAMPP/xamppfiles/htdocs/spider/Application/Common/Common/function.php 第 665 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1404832896 ) LIMIT 1   [ RunTime:0.002789s ]
+SQL: UPDATE `onethink_member` SET `login`=`login`+1,`last_login_time`=1404919296,`last_login_ip`=0 WHERE ( `uid` = 1 ) [ RunTime:0.000877s ]
+
+[ 2014-07-09T23:21:37+08:00 ] ::1 /spider/admin.php?s=/Index/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.002374s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.002898s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Index/index%' ) LIMIT 1   [ RunTime:0.001440s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001471s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.000514s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 1 )  [ RunTime:0.001491s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 1 ) AND ( `hide` = 0 )  [ RunTime:0.000219s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+INFO: [ AdminIndex ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.002701s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SiteStat' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000527s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.000994s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_member` LIMIT 1   [ RunTime:0.000166s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.001021s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` LIMIT 1   [ RunTime:0.000164s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.002809s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` LIMIT 1   [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.002904s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_category` LIMIT 1   [ RunTime:0.000170s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.002504s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_model` LIMIT 1   [ RunTime:0.000170s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.020930s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001527s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.001580s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000191s ]
+INFO: Run Addons\SiteStat\SiteStatAddon [ RunTime:0.020222s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SystemInfo' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000380s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.221649s ]
+SQL: select version() as v; [ RunTime:0.001756s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004404s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.198533s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000014s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.202808s ]
+INFO: Run Addons\SystemInfo\SystemInfoAddon [ RunTime:0.202846s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'DevTeam' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000386s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.227479s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001723s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.204784s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.206358s ]
+INFO: Run Addons\DevTeam\DevTeamAddon [ RunTime:0.003529s ]
+INFO: [ AdminIndex ] --END-- [ RunTime:0.226671s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001901s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.204784s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000007s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.206531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000568s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000640s ]
+
+[ 2014-07-09T23:21:39+08:00 ] ::1 /spider/admin.php?s=/Spider/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001206s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000475s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Spider/index%' ) LIMIT 1   [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001104s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=122 ) LIMIT 1   [ RunTime:0.000282s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 122 )  [ RunTime:0.000224s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 122 ) AND ( `hide` = 0 )  [ RunTime:0.000179s ]
+SQL: SHOW COLUMNS FROM `onethink_spider` [ RunTime:0.000945s ]
+ERR: 1146:Table 'spider.onethink_spider' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `onethink_spider`
+NOTIC: [2] Missing argument 1 for Think\Model::where(), called in /Applications/XAMPP/xamppfiles/htdocs/spider/Application/Admin/Controller/SpiderController.class.php on line 27 and defined /Applications/XAMPP/xamppfiles/htdocs/spider/ThinkPHP/Library/Think/Model.class.php 第 1610 行.
+NOTIC: [8] Undefined variable: where /Applications/XAMPP/xamppfiles/htdocs/spider/ThinkPHP/Library/Think/Model.class.php 第 1618 行.
+NOTIC: [8] Undefined variable: where /Applications/XAMPP/xamppfiles/htdocs/spider/ThinkPHP/Library/Think/Model.class.php 第 1621 行.
+NOTIC: [8] Undefined variable: where /Applications/XAMPP/xamppfiles/htdocs/spider/ThinkPHP/Library/Think/Model.class.php 第 1629 行.
+SQL: SELECT * FROM `onethink_spider` ORDER BY sort asc,id asc  [ RunTime:0.000260s ]
+ERR: 1146:Table 'spider.onethink_spider' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `onethink_spider` ORDER BY sort asc,id asc 
+ERR: 模板不存在:./Application/Admin/View/Spider/index.html
+
+[ 2014-07-09T23:21:44+08:00 ] ::1 /spider/admin.php?s=/Article/mydocument.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001190s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000521s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/mydocument%' ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001280s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.000746s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.000431s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000588s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.002245s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.001743s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.001206s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.000491s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.001038s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `uid` = 1 ) AND ( `pid` = 0 ) LIMIT 1   [ RunTime:0.000954s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `uid` = 1 ) AND ( `pid` = 0 ) ORDER BY update_time desc LIMIT 0,10   [ RunTime:0.000325s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000194s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.001240s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=1 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000184s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024865s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000196s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000590s ]
+
