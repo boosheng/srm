@@ -121,11 +121,11 @@
                         <td><?php echo ($channel["ctime"]); ?></td>
                         <td><?php echo ($channel["mtime"]); ?></td>
 						<td>
-							<a title="编辑" href="<?php echo U('edit?id='.$channel['id'].'&pid='.$pid);?>">编辑</a>
-							<a href="<?php echo U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']));?>" class="ajax-get"><?php echo (show_status_op($channel["status"])); ?></a>
-							<a class="confirm ajax-get" title="删除" href="<?php echo U('del?id='.$channel['id']);?>">删除</a>
-                            <a class="confirm ajax-get" title="动作" href="<?php echo U('del?id='.$channel['id']);?>">动作</a>
-                            <a class="confirm ajax-get" title="任务" href="<?php echo U('del?id='.$channel['id']);?>">任务</a>
+							<a title="编辑" href="<?php echo U('edit?id='.$channel['id'].'&pid='.$pid);?>">编辑</a> |
+							<a href="<?php echo U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']));?>" class="ajax-get"><?php echo (show_status_op($channel["status"])); ?></a> |
+                            <a class="confirm ajax-get" title="删除" href="<?php echo U('del?id='.$channel['id']);?>">删除</a> |
+                            <a class="confirm ajax-get" title="动作" href="<?php echo U('del?id='.$channel['id']);?>">动作</a> |
+                            <a class="confirm ajax-get" title="任务" href="<?php echo U('del?id='.$channel['id']);?>">任务</a> |
                             <a class="confirm ajax-get" title="日志" href="<?php echo U('del?id='.$channel['id']);?>">日志</a>
 						</td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
