@@ -24,7 +24,7 @@ class SpiderController extends AdminController {
         $pid = i('get.pid', 0);
         /* 获取频道列表 */
         //$map  = array('stat' => array('gt', -1), 'id'=>$pid);
-        $list = M('spiderhosts')->where()->order('id asc')->select();
+        $list = M('SpiderHosts')->where('id>0')->order('ctime')->limit(10)->select();
         //var_dump($list);exit;
         $this->assign('list', $list);
         $this->assign('pid', $pid);

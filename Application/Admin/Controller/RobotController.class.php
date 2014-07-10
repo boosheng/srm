@@ -24,7 +24,7 @@ class RobotController extends AdminController {
         $pid = i('get.pid', 0);
         /* 获取频道列表 */
         //$map  = array('stat' => array('gt', -1), 'id'=>$pid);
-        $list = M('spiderhosts')->where()->order('id asc')->select();
+        $list = M('RobotHosts')->where('id>0')->order('ctime desc')->limit(10)->select();
         //var_dump($list);exit;
         $this->assign('list', $list);
         $this->assign('pid', $pid);

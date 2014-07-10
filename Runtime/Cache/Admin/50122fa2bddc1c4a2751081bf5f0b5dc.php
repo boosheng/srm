@@ -85,55 +85,62 @@
             
 
             
+	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>导航管理</h2>
+		<h2>插件列表</h2>
+	</div>
+	<div>
+		<a href="<?php echo U('create');?>" class="btn">快速创建</a>
 	</div>
 
-	<div class="cf">
-		<a class="btn" href="<?php echo U('add','pid='.$pid);?>">新 增</a>
-		<a class="btn" href="javascript:;">删 除</a>
-		<button class="btn list_sort" url="<?php echo U('sort',array('pid'=>I('get.pid',0)),'');?>">排序</button>
-	</div>
-
+	<!-- 数据列表 -->
 	<div class="data-table table-striped">
 		<table>
 			<thead>
 				<tr>
-					<th class="row-selected">
-						<input class="checkbox check-all" type="checkbox">
-					</th>
-					<th>ID</th>
 					<th>名称</th>
-                    <th>状态</th>
-                    <th>优先级</th>
-                    <th>创建时间</th>
-                    <th>更新时间</th>
-					<th>操作</th>
+					<th>标识</th>
+					<th >描述</th>
+					<th width="43px">状态</th>
+					<th>作者</th>
+					<th width="43px">版本</th>
+					<th width="94px">操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php if(!empty($list)): if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?><tr>
-						<td><input class="ids row-selected" type="checkbox" name="" id="" value="<?php echo ($channel['id']); ?>"> </td>
-						<td><?php echo ($channel["id"]); ?></td>
-						<td><a href="<?php echo U('index?pid='.$channel['id']);?>"><?php echo ($channel["name"]); ?></a></td>
-						<td><?php echo ($channel["url"]); ?></td>
-                        <td><?php echo ($channel["level"]); ?></td>
-                        <td><?php echo ($channel["ctime"]); ?></td>
-                        <td><?php echo ($channel["mtime"]); ?></td>
-						<td>
-							<a title="编辑" href="<?php echo U('edit?id='.$channel['id'].'&pid='.$pid);?>">编辑</a>
-							<a href="<?php echo U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']));?>" class="ajax-get"><?php echo (show_status_op($channel["status"])); ?></a>
-							<a class="confirm ajax-get" title="删除" href="<?php echo U('del?id='.$channel['id']);?>">删除</a>
-                            <a class="confirm ajax-get" title="动作" href="<?php echo U('del?id='.$channel['id']);?>">动作</a>
-                            <a class="confirm ajax-get" title="任务" href="<?php echo U('del?id='.$channel['id']);?>">任务</a>
-                            <a class="confirm ajax-get" title="日志" href="<?php echo U('del?id='.$channel['id']);?>">日志</a>
-						</td>
-					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+				<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+					<td><?php echo ($vo["title"]); ?></td>
+					<td><?php echo ($vo["name"]); ?></td>
+					<td><?php echo ($vo["description"]); ?></td>
+					<td><?php echo ((isset($vo["status_text"]) && ($vo["status_text"] !== ""))?($vo["status_text"]):"未安装"); ?></td>
+					<td><a target="_blank" href="<?php echo ((isset($vo["url"]) && ($vo["url"] !== ""))?($vo["url"]):'http://www.onethink.cn'); ?>"><?php echo ($vo["author"]); ?></a></td>
+					<td><?php echo ($vo["version"]); ?></td>
+					<td>
+						<?php if(empty($vo["uninstall"])): $class = get_addon_class($vo['name']); if(!class_exists($class)){ $has_config = 0; }else{ $addon = new $class(); $has_config = count($addon->getConfig()); } ?>
+							<?php if ($has_config): ?>
+								<a href="<?php echo U('config',array('id'=>$vo['id']));?>">设置</a>
+							<?php endif ?>
+						<?php if ($vo['status'] >=0): ?>
+							<?php if(($vo["status"]) == "0"): ?><a class="ajax-get" href="<?php echo U('enable',array('id'=>$vo['id']));?>">启用</a>
+							<?php else: ?>
+								<a class="ajax-get" href="<?php echo U('disable',array('id'=>$vo['id']));?>">禁用</a><?php endif; ?>
+						<?php endif ?>
+							
+								<a class="ajax-get" href="<?php echo U('uninstall?id='.$vo['id']);?>">卸载</a>
+							
+						<?php else: ?>
+							<a class="ajax-get" href="<?php echo U('install?addon_name='.$vo['name']);?>">安装</a><?php endif; ?>
+					</td>
+				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				<?php else: ?>
 				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
 			</tbody>
 		</table>
 	</div>
+	<!-- 分页 -->
+    <div class="page">
+        <?php echo ($_page); ?>
+    </div>
 
         </div>
         <div class="cont-ft">
@@ -228,27 +235,5 @@
         }();
     </script>
     
-<script type="text/javascript">
-    $(function() {
-    	//点击排序
-    	$('.list_sort').click(function(){
-    		var url = $(this).attr('url');
-    		var ids = $('.ids:checked');
-    		var param = '';
-    		if(ids.length > 0){
-    			var str = new Array();
-    			ids.each(function(){
-    				str.push($(this).val());
-    			});
-    			param = str.join(',');
-    		}
-
-    		if(url != undefined && url != ''){
-    			window.location.href = url + '/ids/' + param;
-    		}
-    	});
-    });
-</script>
-
 </body>
 </html>

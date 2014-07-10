@@ -20,8 +20,7 @@
 					</th>
 					<th>ID</th>
 					<th>名称</th>
-                    <th>E名称</th>
-					<th>地址</th>
+                    <th>状态</th>
                     <th>优先级</th>
                     <th>创建时间</th>
                     <th>更新时间</th>
@@ -35,15 +34,17 @@
 						<td><input class="ids row-selected" type="checkbox" name="" id="" value="{$channel['id']}"> </td>
 						<td>{$channel.id}</td>
 						<td><a href="{:U('index?pid='.$channel['id'])}">{$channel.name}</a></td>
-                        <td><a href="{:U('index?pid='.$channel['id'])}">{$channel.ename}</a></td>
 						<td>{$channel.url}</td>
                         <td>{$channel.level}</td>
                         <td>{$channel.ctime}</td>
                         <td>{$channel.mtime}</td>
 						<td>
-							<a title="编辑" href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}">编辑</a>
-							<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" class="ajax-get">{$channel.status|show_status_op}</a>
-							<a class="confirm ajax-get" title="删除" href="{:U('del?id='.$channel['id'])}">删除</a>
+							<a title="编辑" href="{:U('edit?id='.$channel['id'].'&pid='.$pid)}">编辑</a> |
+							<a href="{:U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']))}" class="ajax-get">{$channel.status|show_status_op}</a> |
+                            <a class="confirm ajax-get" title="删除" href="{:U('del?id='.$channel['id'])}">删除</a> |
+                            <a class="confirm ajax-get" title="动作" href="{:U('del?id='.$channel['id'])}">动作</a> |
+                            <a class="confirm ajax-get" title="任务" href="{:U('del?id='.$channel['id'])}">任务</a> |
+                            <a class="confirm ajax-get" title="日志" href="{:U('del?id='.$channel['id'])}">日志</a>
 						</td>
 					</tr>
 				</volist>

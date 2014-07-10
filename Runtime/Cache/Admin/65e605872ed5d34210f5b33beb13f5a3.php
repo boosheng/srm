@@ -85,55 +85,67 @@
             
 
             
+	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>导航管理</h2>
+		<h2>用户列表</h2>
 	</div>
-
 	<div class="cf">
-		<a class="btn" href="<?php echo U('add','pid='.$pid);?>">新 增</a>
-		<a class="btn" href="javascript:;">删 除</a>
-		<button class="btn list_sort" url="<?php echo U('sort',array('pid'=>I('get.pid',0)),'');?>">排序</button>
-	</div>
+		<div class="fl">
+            <a class="btn" href="<?php echo U('add');?>">新 增</a>
+            <button class="btn ajax-post" url="<?php echo U('changeStatus?method=resumeUser');?>" target-form="ids">启 用</button>
+            <button class="btn ajax-post" url="<?php echo U('changeStatus?method=forbidUser');?>" target-form="ids">禁 用</button>
+            <button class="btn ajax-post confirm" url="<?php echo U('changeStatus?method=deleteUser');?>" target-form="ids">删 除</button>
+        </div>
 
-	<div class="data-table table-striped">
-		<table>
-			<thead>
-				<tr>
-					<th class="row-selected">
-						<input class="checkbox check-all" type="checkbox">
-					</th>
-					<th>ID</th>
-					<th>名称</th>
-                    <th>状态</th>
-                    <th>优先级</th>
-                    <th>创建时间</th>
-                    <th>更新时间</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php if(!empty($list)): if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$channel): $mod = ($i % 2 );++$i;?><tr>
-						<td><input class="ids row-selected" type="checkbox" name="" id="" value="<?php echo ($channel['id']); ?>"> </td>
-						<td><?php echo ($channel["id"]); ?></td>
-						<td><a href="<?php echo U('index?pid='.$channel['id']);?>"><?php echo ($channel["name"]); ?></a></td>
-						<td><?php echo ($channel["url"]); ?></td>
-                        <td><?php echo ($channel["level"]); ?></td>
-                        <td><?php echo ($channel["ctime"]); ?></td>
-                        <td><?php echo ($channel["mtime"]); ?></td>
-						<td>
-							<a title="编辑" href="<?php echo U('edit?id='.$channel['id'].'&pid='.$pid);?>">编辑</a>
-							<a href="<?php echo U('setStatus?ids='.$channel['id'].'&status='.abs(1-$channel['status']));?>" class="ajax-get"><?php echo (show_status_op($channel["status"])); ?></a>
-							<a class="confirm ajax-get" title="删除" href="<?php echo U('del?id='.$channel['id']);?>">删除</a>
-                            <a class="confirm ajax-get" title="动作" href="<?php echo U('del?id='.$channel['id']);?>">动作</a>
-                            <a class="confirm ajax-get" title="任务" href="<?php echo U('del?id='.$channel['id']);?>">任务</a>
-                            <a class="confirm ajax-get" title="日志" href="<?php echo U('del?id='.$channel['id']);?>">日志</a>
-						</td>
-					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+        <!-- 高级搜索 -->
+		<div class="search-form fr cf">
+			<div class="sleft">
+				<input type="text" name="nickname" class="search-input" value="<?php echo I('nickname');?>" placeholder="请输入用户昵称或者ID">
+				<a class="sch-btn" href="javascript:;" id="search" url="<?php echo U('index');?>"><i class="btn-search"></i></a>
+			</div>
+		</div>
+    </div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="row-selected row-selected"><input class="check-all" type="checkbox"/></th>
+		<th class="">UID</th>
+		<th class="">昵称</th>
+		<th class="">积分</th>
+		<th class="">登录次数</th>
+		<th class="">最后登录时间</th>
+		<th class="">最后登录IP</th>
+		<th class="">状态</th>
+		<th class="">操作</th>
+		</tr>
+    </thead>
+    <tbody>
+		<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+            <td><input class="ids" type="checkbox" name="id[]" value="<?php echo ($vo["uid"]); ?>" /></td>
+			<td><?php echo ($vo["uid"]); ?> </td>
+			<td><?php echo ($vo["nickname"]); ?></td>
+			<td><?php echo ($vo["score"]); ?></td>
+			<td><?php echo ($vo["login"]); ?></td>
+			<td><span><?php echo (time_format($vo["last_login_time"])); ?></span></td>
+			<td><span><?php echo long2ip($vo['last_login_ip']);?></span></td>
+			<td><?php echo ($vo["status_text"]); ?></td>
+			<td><?php if(($vo["status"]) == "1"): ?><a href="<?php echo U('User/changeStatus?method=forbidUser&id='.$vo['uid']);?>" class="ajax-get">禁用</a>
 				<?php else: ?>
-				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
-			</tbody>
-		</table>
+				<a href="<?php echo U('User/changeStatus?method=resumeUser&id='.$vo['uid']);?>" class="ajax-get">启用</a><?php endif; ?>
+				<a href="<?php echo U('AuthManager/group?uid='.$vo['uid']);?>" class="authorize">授权</a>
+                <a href="<?php echo U('User/changeStatus?method=deleteUser&id='.$vo['uid']);?>" class="confirm ajax-get">删除</a>
+                </td>
+		</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+		<?php else: ?>
+		<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
+	</tbody>
+    </table>
 	</div>
+    <div class="page">
+        <?php echo ($_page); ?>
+    </div>
 
         </div>
         <div class="cont-ft">
@@ -228,27 +240,32 @@
         }();
     </script>
     
-<script type="text/javascript">
-    $(function() {
-    	//点击排序
-    	$('.list_sort').click(function(){
-    		var url = $(this).attr('url');
-    		var ids = $('.ids:checked');
-    		var param = '';
-    		if(ids.length > 0){
-    			var str = new Array();
-    			ids.each(function(){
-    				str.push($(this).val());
-    			});
-    			param = str.join(',');
-    		}
+	<script src="/spider/Public/static/thinkbox/jquery.thinkbox.js"></script>
 
-    		if(url != undefined && url != ''){
-    			window.location.href = url + '/ids/' + param;
-    		}
-    	});
-    });
-</script>
+	<script type="text/javascript">
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    highlight_subnav('<?php echo U('User/index');?>');
+	</script>
 
 </body>
 </html>
