@@ -85,62 +85,47 @@
             
 
             
-	<!-- 标题栏 -->
 	<div class="main-title">
-		<h2>插件列表</h2>
+		<h2>
+			<?php echo ($info['id']?'编辑':'新增'); ?>导航
+			<?php if(!empty($pid)): ?>[&nbsp;父导航：<a href="<?php echo U('index','pid='.$pid);?>"><?php echo ($parent["title"]); ?></a>&nbsp;]<?php endif; ?>
+		</h2>
 	</div>
-	<div>
-		<a href="<?php echo U('create');?>" class="btn">快速创建</a>
-	</div>
-
-	<!-- 数据列表 -->
-	<div class="data-table table-striped">
-		<table>
-			<thead>
-				<tr>
-					<th>名称</th>
-					<th>标识</th>
-					<th >描述</th>
-					<th width="43px">状态</th>
-					<th>作者</th>
-					<th width="43px">版本</th>
-					<th width="94px">操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php if(!empty($_list)): if(is_array($_list)): $i = 0; $__LIST__ = $_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-					<td><?php echo ($vo["title"]); ?></td>
-					<td><?php echo ($vo["name"]); ?></td>
-					<td><?php echo ($vo["description"]); ?></td>
-					<td><?php echo ((isset($vo["status_text"]) && ($vo["status_text"] !== ""))?($vo["status_text"]):"未安装"); ?></td>
-					<td><a target="_blank" href="<?php echo ((isset($vo["url"]) && ($vo["url"] !== ""))?($vo["url"]):'http://www.onethink.cn'); ?>"><?php echo ($vo["author"]); ?></a></td>
-					<td><?php echo ($vo["version"]); ?></td>
-					<td>
-						<?php if(empty($vo["uninstall"])): $class = get_addon_class($vo['name']); if(!class_exists($class)){ $has_config = 0; }else{ $addon = new $class(); $has_config = count($addon->getConfig()); } ?>
-							<?php if ($has_config): ?>
-								<a href="<?php echo U('config',array('id'=>$vo['id']));?>">设置</a>
-							<?php endif ?>
-						<?php if ($vo['status'] >=0): ?>
-							<?php if(($vo["status"]) == "0"): ?><a class="ajax-get" href="<?php echo U('enable',array('id'=>$vo['id']));?>">启用</a>
-							<?php else: ?>
-								<a class="ajax-get" href="<?php echo U('disable',array('id'=>$vo['id']));?>">禁用</a><?php endif; ?>
-						<?php endif ?>
-							
-								<a class="ajax-get" href="<?php echo U('uninstall?id='.$vo['id']);?>">卸载</a>
-							
-						<?php else: ?>
-							<a class="ajax-get" href="<?php echo U('install?addon_name='.$vo['name']);?>">安装</a><?php endif; ?>
-					</td>
-				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-				<?php else: ?>
-				<td colspan="6" class="text-center"> aOh! 暂时还没有内容! </td><?php endif; ?>
-			</tbody>
-		</table>
-	</div>
-	<!-- 分页 -->
-    <div class="page">
-        <?php echo ($_page); ?>
-    </div>
+	<form action="<?php echo U();?>" method="post" class="form-horizontal">
+		<input type="hidden" name="pid" value="<?php echo ($pid); ?>">
+		<div class="form-item">
+			<label class="item-label">导航标题<span class="check-tips">（用于显示的文字）</span></label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="title" value="<?php echo ((isset($info["title"]) && ($info["title"] !== ""))?($info["title"]):''); ?>">
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="item-label">导航连接<span class="check-tips">（用于调转的URL，支持带http://的URL或U函数参数格式）</span></label>
+			<div class="controls">
+				<input type="text" class="text input-large" name="url" value="<?php echo ((isset($info["url"]) && ($info["url"] !== ""))?($info["url"]):''); ?>">
+			</div>
+		</div>
+        <div class="form-item">
+            <label class="item-label">新窗口打开<span class="check-tips">（是否新窗口打开链接）</span></label>
+            <div class="controls">
+                <select name="target">
+				<option value="0" <?php if(($info["target"]) == "0"): ?>selected<?php endif; ?>>否</option>
+				<option value="1" <?php if(($info["target"]) == "1"): ?>selected<?php endif; ?>>是</option>
+                </select>
+            </div>
+        </div>
+		<div class="form-item">
+			<label class="item-label">优先级<span class="check-tips">（导航显示顺序）</span></label>
+			<div class="controls">
+				<input type="text" class="text input-small" name="sort" value="<?php echo ((isset($info["sort"]) && ($info["sort"] !== ""))?($info["sort"]):'0'); ?>">
+			</div>
+		</div>
+		<div class="form-item">
+			<input type="hidden" name="id" value="<?php echo ((isset($info["id"]) && ($info["id"] !== ""))?($info["id"]):''); ?>">
+			<button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+			<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+		</div>
+	</form>
 
         </div>
         <div class="cont-ft">
@@ -235,5 +220,10 @@
         }();
     </script>
     
+<script type="text/javascript" charset="utf-8">
+	//导航高亮
+	highlight_subnav('<?php echo U('index');?>');
+</script>
+
 </body>
 </html>

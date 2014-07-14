@@ -1,0 +1,19 @@
+[ 2014-07-11T00:01:43+08:00 ] ::1 /spider/admin.php?s=/Spider/edit/id/1.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.001517s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.000491s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Spider/edit%' ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SHOW COLUMNS FROM `onethink_channel` [ RunTime:0.007927s ]
+SQL: SELECT * FROM `onethink_channel` WHERE ( `id` = 1 ) LIMIT 1   [ RunTime:0.002148s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000198s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014349s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014425s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000199s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000583s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000646s ]
+

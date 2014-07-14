@@ -28,8 +28,8 @@ $db = new medoo([
 //$db->select("onethink_hosts","*",["stat"=>1]);
 $res = $db->query("select * from onethink_spider_hosts where stat = '1' order by level desc")->fetchAll();
 foreach($res as $key =>$val){
-    $db->query("update `onethink_spider_hosts` set `stat`='2' where `id`={$val['id']};");
-    $db->insert("onethink_spider_logs",[]);
+    $db->query("update `onethink_spider_hosts` set `stat`='2' where `id` = ".$val['id'].";");
+    //$db->insert("onethink_spider_logs",[]);
     spider($val);
 
 }
@@ -37,6 +37,7 @@ foreach($res as $key =>$val){
 
 function spider($arr){
     global $db;
+    //$res = model_http_curl_get();
 
 
 }
@@ -64,3 +65,21 @@ function model_http_curl_get($url,$userAgent="",$cookie="")
     curl_close($curl);
     return $result;
 }
+
+function get_first_page(){
+    global $db;
+    $res = $db->query("select * from onethink_spider_hosts where stat = '1' order by level desc")->fetchAll();
+    foreach($res as $key =>$val){
+        $st= time();
+        $str = model_http_curl_get($val['url']);
+        $usetime = time()-$st;
+        $ut[$val['url']]=$usetime;
+        file_put_contents("./data/".$res.".html",$str);
+        echo $val['url']."\n";
+    }
+    file_put_contents("./data/".date("Ymd",time())."-time.txt",serialize($ut));
+    return $ut;
+}
+
+
+get_first_page();
